@@ -5,18 +5,20 @@ const Foodcard = ({ items }) => {
 
   return (
     <div className="h-[400px]">
-      <div className="card bg-blue-200 w-96 shadow-2xl p-5 h-full flex flex-col">
-        <figure className="h-1/2 rounded-4xl">
-          <img className="  p-3 " src={image} alt={name} />
+      <div className="card bg-blue-200 w-96 shadow-2xl  h-full ">
+        <figure className="h-1/2 ">
+          <img className="p-2" src={image} alt={name} />
         </figure>
-        <div className="card-body flex flex-col justify-between h-1/2">
+        <p className="text-xl font-bold bg-black text-white absolute right-0 mt-3 mr-5 px-3 py-3 rounded-2xl">
+          ${price}
+        </p>
+        <div className="card-body ">
           <div>
-            <h2 className="card-title text-lg font-bold">{name}</h2>
-            <p className="text-sm text-gray-700">{recipe}</p>
+            <h2 className="text-xl font-bold text-center">{name}</h2>
+            <p className=" text-sm py-2 font-bold">{recipe}</p>
           </div>
-          <div className="card-actions flex justify-between items-center">
-            <p className="text-xl font-bold text-gray-900">${price}</p>
-            <button className="btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+          <div className=" text-center">
+            <button className="btn btn-outline border-0 font-bold border-b-4 border-orange-400 bg-slate-100 hover:bg-black hover:border-0 hover:text-white   px-10 py-5 rounded-lg ">
               Add To Cart
             </button>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Menuitems from "../../Home/Menuitems";
 import Menucover from "./Menucover";
+import { Link } from "react-router-dom";
 
 const Menucatagory = ({ item, Titile, img }) => {
   return (
@@ -10,6 +11,13 @@ const Menucatagory = ({ item, Titile, img }) => {
         {item.map((items, index) => (
           <Menuitems key={index} items={items}></Menuitems>
         ))}
+      </div>
+      <div className="text-center">
+        <Link to={`/order/${Titile}`}>
+          <button className="btn btn-outline border-0 border-b-2  hover:bg-black hover:text-white mt-4">
+            Order Now
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -5,11 +5,19 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Usemenu from "../../../Hooks/Usemenu";
 import Foodcard from "../Foodcard/Foodcard";
+import Ordertab from "../Foodcard/Ordertab";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const [tabindex, setTabindex] = useState(0);
+  const Categorys = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const initaile = Categorys.indexOf(Categorys);
+  const [tabindex, setTabindex] = useState(initaile);
+  console.log(tabindex);
   const [Menu] = Usemenu();
-  const offered = Menu.filter((items) => items.category === "offered");
+  const { category } = useParams();
+
+  console.log(category);
+  const drinks = Menu.filter((items) => items.category === "drinks");
   const desserts = Menu.filter((items) => items.category === "dessert");
   const soup = Menu.filter((items) => items.category === "soup");
   const pizza = Menu.filter((items) => items.category === "pizza");
@@ -19,7 +27,7 @@ const Order = () => {
   return (
     <div>
       <Menucover Img={ORderpage} Titile="order food"></Menucover>
-      <div className="flex flex-col justify-center items-center">
+      <div className=" text-center">
         <Tabs defaultIndex={tabindex} onSelect={(index) => setTabindex(index)}>
           <TabList className="text-xl font-bold space-x-5">
             <Tab>Salad</Tab>
@@ -28,17 +36,21 @@ const Order = () => {
             <Tab>desserts</Tab>
             <Tab>drinks</Tab>
           </TabList>
-          <TabPanel className="mt-3">
-            <div className="grid grid-cols-3 gap-3">
-              {salad.map((items) => (
-                <Foodcard key={items._id} items={items}></Foodcard>
-              ))}
-            </div>
+          <TabPanel className="mt-3 w-11/12 mx-auto">
+            <Ordertab items={salad}></Ordertab>
           </TabPanel>
-          <TabPanel></TabPanel>
-          <TabPanel></TabPanel>
-          <TabPanel></TabPanel>
-          <TabPanel></TabPanel>
+          <TabPanel className="mt-3 w-11/12 mx-auto">
+            <Ordertab items={pizza}></Ordertab>
+          </TabPanel>
+          <TabPanel className="mt-3 w-11/12 mx-auto">
+            <Ordertab items={soup}></Ordertab>
+          </TabPanel>
+          <TabPanel className="mt-3 w-11/12 mx-auto">
+            <Ordertab items={desserts}></Ordertab>
+          </TabPanel>
+          <TabPanel className="mt-3 w-11/12 mx-auto">
+            <Ordertab items={drinks}></Ordertab>
+          </TabPanel>
         </Tabs>
       </div>
     </div>

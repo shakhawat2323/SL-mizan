@@ -1,18 +1,24 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Footer/Footer";
 import { Helmet } from "react-helmet-async";
 
 const Root = () => {
+  const location = useLocation();
+  console.log(location);
+  const NohedarandFooter = location.pathname.includes("login");
+  const Nohedarsign = location.pathname.includes("signup");
+  console.log(NohedarandFooter);
   return (
     <div>
       <Helmet>
         <title>SL-Mizan | Home</title>
       </Helmet>
-      <Navbar></Navbar>
+      {NohedarandFooter || Nohedarsign || <Navbar></Navbar>}
       <Outlet></Outlet>
-      <Footer></Footer>
+
+      {NohedarandFooter || Nohedarsign || <Footer></Footer>}
     </div>
   );
 };
