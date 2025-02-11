@@ -1,32 +1,33 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import Logo from "../../../public/Logo/Logo.png";
 
 const Navbar = () => {
   const navbutton = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
+        <NavLink to="/">CONTACT us</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/">DASHBOARD</NavLink>
+      </li>
+      <li>
+        <NavLink to="/menu">Our Menu</NavLink>
+      </li>
+      <li>
+        <NavLink to="/ourshop">Our Shop</NavLink>
+      </li>
+      <li>
+        <NavLink to="/Order">Order Food</NavLink>
       </li>
     </>
   );
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar  h-16 bg-gray-200/30 backdrop-blur-lg fixed top-0 left-0 w-full shadow-lg z-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,15 +49,20 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              class="menu menu-sm dropdown-content text-1xl font-bold bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               {navbutton}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">SL-Mizan</a>
+          <div className="flex items-center">
+            <img className="w-30" src={Logo} alt="" />
+            <NavLink className="text-3xl font-bold">SL-Mizan</NavLink>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navbutton}</ul>
+          <ul className="menu menu-horizontal px-1 text-xl  font-bold ">
+            {navbutton}
+          </ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>
