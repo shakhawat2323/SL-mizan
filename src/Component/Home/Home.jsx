@@ -7,10 +7,12 @@ import Formourmenu from "./Formourmenu";
 import Testimonials from "./Testimonials";
 import { Helmet } from "react-helmet-async";
 import Callnumber from "./Callnumber";
+import WaitlistSection from "../Authentication/WaitlistSection";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="magicpattern">
       <Helmet>
         <title>SL-Mizan | Home</title>
       </Helmet>
@@ -21,6 +23,7 @@ const Home = () => {
       <Should></Should>
       <Formourmenu></Formourmenu>
       <Testimonials></Testimonials>
+      <WaitlistSection></WaitlistSection>
     </div>
   );
 };

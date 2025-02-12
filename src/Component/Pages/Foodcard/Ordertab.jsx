@@ -18,7 +18,7 @@ const Ordertab = ({ items }) => {
   for (let i = 0; i < items.length; i += itemsPerSlide) {
     chunkedItems.push(items.slice(i, i + itemsPerSlide));
   }
-
+  console.log(chunkedItems);
   return (
     <div>
       <Swiper

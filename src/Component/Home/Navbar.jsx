@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../../public/Logo/Logo.png";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user, LogOut } = useAuth();
   const navbutton = (
     <>
       <li>
@@ -25,6 +27,9 @@ const Navbar = () => {
       </li>
     </>
   );
+  const handalbaton = () => {
+    LogOut();
+  };
   return (
     <div>
       <div className="navbar  h-16 bg-gray-200/30 backdrop-blur-lg fixed top-0 left-0 w-full shadow-lg z-20">
@@ -63,42 +68,42 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 text-xl   ">{navbutton}</ul>
         </div>
         <div className="navbar-end">
-          {/* <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                class="menu menu-sm dropdown-content text-2xl  bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">Profile</a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handalbaton}>Logout</button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div> */}
-          <div>
-            <NavLink to="/login">
-              <button className="btn text-xl font-bold">Login</button>
-            </NavLink>
-          </div>
+          ) : (
+            <div>
+              <NavLink to="/login">
+                <button className="btn text-xl font-bold">Login</button>
+              </NavLink>
+            </div>
+          )}
         </div>
       </div>
     </div>

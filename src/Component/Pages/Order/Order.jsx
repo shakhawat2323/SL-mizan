@@ -9,12 +9,12 @@ import Ordertab from "../Foodcard/Ordertab";
 import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const Categorys = ["salad", "pizza", "soup", "dessert", "drinks"];
-  const initaile = Categorys.indexOf(Categorys);
+  const { category } = useParams();
+  const Categorys = ["salad", "pizza", "soup", "desserts", "drinks"];
+  const initaile = Categorys.indexOf(category);
   const [tabindex, setTabindex] = useState(initaile);
   console.log(tabindex);
   const [Menu] = Usemenu();
-  const { category } = useParams();
 
   console.log(category);
   const drinks = Menu.filter((items) => items.category === "drinks");

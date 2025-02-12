@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Home/Navbar";
 import Footer from "../Footer/Footer";
 import { Helmet } from "react-helmet-async";
+import { ToastContainer } from "react-toastify";
 
 const Root = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const Root = () => {
       <Outlet></Outlet>
 
       {NohedarandFooter || Nohedarsign || <Footer></Footer>}
+      <ToastContainer />
     </div>
   );
 };

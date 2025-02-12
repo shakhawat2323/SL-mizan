@@ -1,3 +1,27 @@
 .featured-items {
   background-image: url(../../assets//home/featured.jpg);
 }
+
+/* .btnss {
+  background-color: #e5e5f7;
+  opacity: 0.7;
+  background-image: linear-gradient(
+      #444cf7 0.6000000000000001px,
+      transparent 0.6000000000000001px
+    ),
+    linear-gradient(
+      to right,
+      #444cf7 0.6000000000000001px,
+      #e5e5f7 0.6000000000000001px
+    );
+  background-size: 12px 12px;
+} */
+
+.magicpattern {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask id=%22b%22 x=%220%22 y=%220%22 width=%222000%22 height=%221400%22%3E%3Cpath fill=%22url(%23a)%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C%2Fmask%3E%3Cpath fill=%22%23f2f2f9%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3Cg style=%22transform-origin:center center%22 stroke=%22%23000002%22 stroke-width=%224%22 fill=%22none%22 mask=%22url(%23b)%22%3E%3Cpath d=%22M1111.111 0h111.111v111.111h-111.111zM666.667 111.111h111.111v111.111H666.667zM777.778 111.111h111.111v111.111H777.778zM1555.556 111.111h111.111v111.111h-111.111zM333.333 222.222h111.111v111.111H333.333zM444.444 222.222h111.111v111.111H444.444zM666.667 222.222h111.111v111.111H666.667zM1777.778 333.333h111.111v111.111h-111.111zM666.667 444.444h111.111v111.111H666.667zM777.778 444.444h111.111v111.111H777.778zM1333.333 444.444h111.111v111.111h-111.111zM111.111 555.556h111.111v111.111H111.111zM222.222 555.556h111.111v111.111H222.222zM555.556 555.556h111.111v111.111H555.556zM1777.778 555.556h111.111v111.111h-111.111zM666.667 666.667h111.111v111.111H666.667zM0 777.778h111.111v111.111H0zM666.667 777.778h111.111v111.111H666.667zM1111.111 1000h111.111v111.111h-111.111zM666.667 1111.111h111.111v111.111H666.667zM1333.333 1111.111h111.111v111.111h-111.111zM1888.889 1111.111H2000v111.111h-111.111zM1555.556 1222.222h111.111v111.111h-111.111zM555.556 1333.333h111.111v111.111H555.556z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CradialGradient id=%22a%22%3E%3Cstop offset=%2242.4%25%22 stop-color=%22%23fff%22 stop-opacity=%220%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%23fff%22 stop-opacity=%22.576%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+}
