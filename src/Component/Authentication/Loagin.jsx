@@ -1,11 +1,13 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Loginlogo from "../../../public/img/Login.png";
 import { toast } from "react-toastify";
 
 const Loagin = () => {
   const Naviget = useNavigate();
+  const location = useLocation();
   const { Signinsuer } = useAuth();
+  const from = location?.state?.from?.pathname || "/";
   const Loginformdata = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +16,7 @@ const Loagin = () => {
     const user = { email, password };
     Signinsuer(email, password).then((result) => {
       console.log(result.user);
-      Naviget("/");
+      Naviget(from, { replace: true });
       form.reset();
       toast("successfully Login", {
         position: "top-center",

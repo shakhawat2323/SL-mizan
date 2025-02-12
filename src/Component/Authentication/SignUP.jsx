@@ -12,7 +12,7 @@ import {
 
 const SignUP = () => {
   const Naviget = useNavigate();
-  const { Crateanewuser, GoogleLogin, LogOut } = useAuth();
+  const { Crateanewuser, GoogleLogin, LogOut, updateprofile } = useAuth();
   const Capchardata = useRef(null);
   const [disabled, setDisbale] = useState(true);
   useEffect(() => {
@@ -35,6 +35,14 @@ const SignUP = () => {
         position: "top-center",
         autoClose: 1000,
       });
+      updateprofile(name, photo).then((result) => {
+        console.log(result);
+        toast("successfully Profile update", {
+          position: "top-center",
+          autoClose: 1000,
+        });
+        reset();
+      });
       console.log(result.user);
       Naviget("/login");
       form.reset();
@@ -43,8 +51,9 @@ const SignUP = () => {
   };
 
   const GoogleLogins = () => {
-    GoogleLogin();
-    Naviget("/");
+    GoogleLogin().then((result) => {
+      Naviget("/");
+    });
   };
 
   const Capcharverifyhandal = () => {

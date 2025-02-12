@@ -6,6 +6,7 @@ import OurShop from "../Pages/Shop/OurShop";
 import Order from "../Pages/Order/Order";
 import Loagin from "../Authentication/Loagin";
 import SignUP from "../Authentication/SignUP";
+import Privetroute from "../Authentication/Firebase/Privetroute";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/order/:category",
-        element: <Order></Order>,
+        element: (
+          <Privetroute>
+            <Order></Order>
+          </Privetroute>
+        ),
       },
       {
         path: "/login",

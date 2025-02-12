@@ -31,7 +31,7 @@ const Navbar = () => {
     LogOut();
   };
   return (
-    <div>
+    <div className="">
       <div className="navbar  h-16 bg-gray-200/30 backdrop-blur-lg fixed top-0 left-0 w-full shadow-lg z-20">
         <div className="navbar-start">
           <div className="dropdown">
@@ -76,10 +76,12 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  />
+                  {user && (
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL}
+                    />
+                  )}
                 </div>
               </div>
               <ul
