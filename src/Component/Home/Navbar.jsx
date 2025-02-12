@@ -2,9 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../../public/Logo/Logo.png";
 import useAuth from "../../Hooks/useAuth";
+import { MdOutlineShoppingCart } from "react-icons/md";
+import useCart from "../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth();
+  const [cart] = useCart();
+  console.log(cart);
   const navbutton = (
     <>
       <li>
@@ -68,44 +72,54 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 text-xl   ">{navbutton}</ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  {user && (
-                    <img
-                      alt="Tailwind CSS Navbar component"
-                      src={user?.photoURL}
-                    />
-                  )}
-                </div>
+          <div className=" mr-5">
+            <button className="flex">
+              <MdOutlineShoppingCart className="text-3xl font-bold" />
+              <div className="badge badge-sm badge-secondary ">
+                {cart.length}
               </div>
-              <ul
-                tabIndex={0}
-                class="menu menu-sm dropdown-content text-2xl  bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <a className="justify-between">Profile</a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <button onClick={handalbaton}>Logout</button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div>
-              <NavLink to="/login">
-                <button className="btn text-xl font-bold">Login</button>
-              </NavLink>
-            </div>
-          )}
+            </button>
+          </div>
+          <div>
+            {user ? (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    {user && (
+                      <img
+                        alt="Tailwind CSS Navbar component"
+                        src={user?.photoURL}
+                      />
+                    )}
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  class="menu menu-sm dropdown-content text-2xl  bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a className="justify-between">Profile</a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <button onClick={handalbaton}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <NavLink to="/login">
+                  <button className="btn text-xl font-bold">Login</button>
+                </NavLink>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
