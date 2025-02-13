@@ -9,8 +9,10 @@ import {
   LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
+import useAxiospublic from "../../Hooks/useAxiospublic";
 
 const SignUP = () => {
+  const axiospublic = useAxiospublic();
   const Naviget = useNavigate();
   const { Crateanewuser, GoogleLogin, LogOut, updateprofile } = useAuth();
   const Capchardata = useRef(null);
@@ -36,12 +38,25 @@ const SignUP = () => {
         autoClose: 1000,
       });
       updateprofile(name, photo).then((result) => {
-        console.log(result);
+        const userinfo = {
+          name: name,
+          photo: photo,
+          email: email,
+          password: password,
+        };
+        axiospublic.post("/user", userinfo).then((result) => {
+          console.log(result.data);
+          toast("successfully Profile update", {
+            position: "top-center",
+            autoClose: 1000,
+          });
+        });
+
         toast("successfully Profile update", {
           position: "top-center",
           autoClose: 1000,
         });
-        reset();
+        form.reset();
       });
       console.log(result.user);
       Naviget("/login");
@@ -52,6 +67,18 @@ const SignUP = () => {
 
   const GoogleLogins = () => {
     GoogleLogin().then((result) => {
+      const userinfo = {
+        name: result?.user?.displayName,
+        email: result?.user?.email,
+      };
+      axiospublic.post("/user", userinfo).then((result) => {
+        toast("successfully Data Add", {
+          position: "top-center",
+          autoClose: 1000,
+        });
+      });
+
+      console.log(result.data);
       Naviget("/");
     });
   };

@@ -8,7 +8,7 @@ import useCart from "../../Hooks/useCart";
 const Navbar = () => {
   const { user, LogOut } = useAuth();
   const [cart] = useCart();
-  console.log(cart);
+
   const navbutton = (
     <>
       <li>
@@ -17,9 +17,9 @@ const Navbar = () => {
       {/* <li>
         <NavLink to="/">CONTACT us</NavLink>
       </li> */}
-      {/* <li>
-        <NavLink to="/">DASHBOARD</NavLink>
-      </li> */}
+      <li>
+        <NavLink to="/deshboard"> Dashboard</NavLink>
+      </li>
       <li>
         <NavLink to="/menu">Our Menu</NavLink>
       </li>
@@ -72,14 +72,16 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 text-xl   ">{navbutton}</ul>
         </div>
         <div className="navbar-end">
-          <div className=" mr-5">
-            <button className="flex">
-              <MdOutlineShoppingCart className="text-3xl font-bold" />
-              <div className="badge badge-sm badge-secondary ">
-                {cart.length}
-              </div>
-            </button>
-          </div>
+          <NavLink to="/deshboard/cart">
+            <div className=" mr-5">
+              <button className="flex btn">
+                <MdOutlineShoppingCart className="text-3xl font-bold" />
+                <div className="badge badge-sm badge-secondary ">
+                  {cart.length}
+                </div>
+              </button>
+            </div>
+          </NavLink>
           <div>
             {user ? (
               <div className="dropdown dropdown-end">

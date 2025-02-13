@@ -7,6 +7,9 @@ import Order from "../Pages/Order/Order";
 import Loagin from "../Authentication/Loagin";
 import SignUP from "../Authentication/SignUP";
 import Privetroute from "../Authentication/Firebase/Privetroute";
+import Dashborde from "../Dashbord/Dashborde";
+import Card from "../Dashbord/Card";
+import Alluser from "./../Dashbord/Alluser";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +39,21 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUP></SignUP>,
+      },
+    ],
+  },
+  {
+    path: "/deshboard",
+    element: <Dashborde></Dashborde>,
+    children: [
+      {
+        path: "cart",
+        element: <Card></Card>,
+      },
+      // admin deshboard
+      {
+        path: "alluser",
+        element: <Alluser></Alluser>,
       },
     ],
   },
