@@ -18,8 +18,8 @@ const Order = () => {
 
   console.log(category);
   const drinks = Menu.filter((items) => items.category === "drinks");
-  const desserts = Menu.filter((items) => items.category === "dessert");
-  const soup = Menu.filter((items) => items.category === "soup");
+  const desserts = Menu.filter((items) => items.category === "desserts");
+  const soup = Menu.filter((items) => items.category === "soups");
   const pizza = Menu.filter((items) => items.category === "pizza");
 
   const salad = Menu.filter((items) => items.category === "salad");

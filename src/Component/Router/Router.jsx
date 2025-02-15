@@ -10,6 +10,10 @@ import Privetroute from "../Authentication/Firebase/Privetroute";
 import Dashborde from "../Dashbord/Dashborde";
 import Card from "../Dashbord/Card";
 import Alluser from "./../Dashbord/Alluser";
+import Additem from "../Dashbord/Additem";
+import PrivedAdmin from "../Authentication/Firebase/PrivedAdmin";
+import ManagItems from "../Dashbord/ManagItems";
+import UPdateitems from "../Dashbord/UPdateitems";
 
 export const router = createBrowserRouter([
   {
@@ -44,7 +48,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/deshboard",
-    element: <Dashborde></Dashborde>,
+    element: (
+      <Privetroute>
+        <Dashborde></Dashborde>
+      </Privetroute>
+    ),
     children: [
       {
         path: "cart",
@@ -53,7 +61,37 @@ export const router = createBrowserRouter([
       // admin deshboard
       {
         path: "alluser",
-        element: <Alluser></Alluser>,
+        element: (
+          <PrivedAdmin>
+            <Alluser></Alluser>
+          </PrivedAdmin>
+        ),
+      },
+      {
+        path: "additem",
+        element: (
+          <PrivedAdmin>
+            <Additem></Additem>
+          </PrivedAdmin>
+        ),
+      },
+      {
+        path: "manageitems",
+        element: (
+          <PrivedAdmin>
+            <ManagItems></ManagItems>
+          </PrivedAdmin>
+        ),
+      },
+      {
+        path: "updateitems/:id",
+        element: (
+          <PrivedAdmin>
+            <UPdateitems></UPdateitems>
+          </PrivedAdmin>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/menu/${params.id}`),
       },
     ],
   },

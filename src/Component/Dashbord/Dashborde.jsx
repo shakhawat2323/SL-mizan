@@ -10,9 +10,12 @@ import { MdOutlineMenu } from "react-icons/md";
 import { BiSolidFoodMenu } from "react-icons/bi";
 import Logo from "../../../public/Logo/Logo.png";
 import { FaUtensils } from "react-icons/fa";
+import useAdmin from "./useAdmin";
+import Usemenu from "../../Hooks/Usemenu";
 
 const Dashborde = () => {
-  const admin = true;
+  const [isAdmin] = useAdmin();
+  console.log(`Admin is ${isAdmin}`);
 
   return (
     <div className="flex ">
@@ -25,7 +28,7 @@ const Dashborde = () => {
           </h1>
         </div>
         <ul className="menu w-64 mx-auto  py-5  ">
-          {admin ? (
+          {isAdmin ? (
             <>
               {" "}
               <li className="mb-3 ">
@@ -39,7 +42,7 @@ const Dashborde = () => {
               </li>
               <li className="mb-3 ">
                 <NavLink
-                  to="/deshboard/cart"
+                  to="/deshboard/additem"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
                   <FaUtensils />
@@ -48,7 +51,7 @@ const Dashborde = () => {
               </li>
               <li className="mb-3 ">
                 <NavLink
-                  to="/deshboard/cart"
+                  to="/deshboard/manageitems"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
                   <FaListUl></FaListUl>
