@@ -14,6 +14,8 @@ import Additem from "../Dashbord/Additem";
 import PrivedAdmin from "../Authentication/Firebase/PrivedAdmin";
 import ManagItems from "../Dashbord/ManagItems";
 import UPdateitems from "../Dashbord/UPdateitems";
+import Pyment from "../Pyment/Pyment";
+import Pymenthistory from "../Dashbord/Pymenthistory";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +59,14 @@ export const router = createBrowserRouter([
       {
         path: "cart",
         element: <Card></Card>,
+      },
+      {
+        path: "pyment",
+        element: <Pyment></Pyment>,
+      },
+      {
+        path: "pymenthistory",
+        element: <Pymenthistory></Pymenthistory>,
       },
       // admin deshboard
       {

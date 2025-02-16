@@ -3,6 +3,7 @@ import useCart from "../../Hooks/useCart";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxios from "./../../Hooks/useAxios";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const [cart, refetch] = useCart();
@@ -40,7 +41,15 @@ const Card = () => {
       <div className="flex justify-evenly items-center">
         <h1 className="text-4xl font-bold">Items : {cart.length}</h1>
         <h1 className="text-4xl font-bold">Total Price : {Totalprice}</h1>
-        <button className="text-xl font-bold btn btn-primary">pay</button>
+        {cart.length ? (
+          <Link to="/deshboard/pyment">
+            <button className="text-xl font-bold btn btn-primary">pay</button>
+          </Link>
+        ) : (
+          <button disabled className="text-xl font-bold btn btn-primary">
+            pay
+          </button>
+        )}
       </div>
       <div>
         <div className="overflow-x-auto">

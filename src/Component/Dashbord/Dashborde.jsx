@@ -69,6 +69,15 @@ const Dashborde = () => {
               </li>
               <li className="mb-3 ">
                 <NavLink
+                  to="/deshboard/pymenthistory"
+                  className="text-xl text-white bg-[#3B25C1]  font-bold"
+                >
+                  <GiWallet />
+                  <p className="uppercase"> pyment history</p>
+                </NavLink>
+              </li>
+              <li className="mb-3 ">
+                <NavLink
                   to="/deshboard/alluser"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
@@ -100,7 +109,7 @@ const Dashborde = () => {
               </li>
               <li className="mb-3 ">
                 <NavLink
-                  to="/deshboard/cart"
+                  to="/deshboard/pymenthistory"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
                   <GiWallet />
