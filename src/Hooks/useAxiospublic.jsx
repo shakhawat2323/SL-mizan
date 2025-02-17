@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiospublic = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://server-mocha-eight-19.vercel.app",
 });
 const useAxiospublic = () => {
   return axiospublic;

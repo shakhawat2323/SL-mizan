@@ -70,7 +70,7 @@ const ChecOUtform = () => {
         });
 
         const payemnt = {
-          emial: user?.email,
+          email: user?.email,
           price: totalprice,
           transactionId: paymentIntent.id,
           data: new Date(),

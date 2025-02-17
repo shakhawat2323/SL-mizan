@@ -20,6 +20,32 @@ const Pymenthistory = () => {
       <h1>
         this is a <div>{payment.length}</div>{" "}
       </h1>
+      <div>
+        <div className="overflow-x-auto">
+          <table className="table table-zebra">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Price</th>
+                <th>Trangaction ID</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {payment.map((pyments, index) => (
+                <tr key={pyments._id}>
+                  <th>{index + 1}</th>
+                  <td>$ {pyments.price}</td>
+                  <td>{pyments.transactionId}</td>
+
+                  <td>{pyments.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

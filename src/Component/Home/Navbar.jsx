@@ -4,10 +4,12 @@ import Logo from "../../../public/Logo/Logo.png";
 import useAuth from "../../Hooks/useAuth";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import useCart from "../../Hooks/useCart";
+import useAdmin from "../Dashbord/useAdmin";
 
 const Navbar = () => {
   const { user, LogOut } = useAuth();
   const [cart] = useCart();
+  const [isAdmin] = useAdmin();
 
   const navbutton = (
     <>
@@ -17,9 +19,16 @@ const Navbar = () => {
       {/* <li>
         <NavLink to="/">CONTACT us</NavLink>
       </li> */}
-      <li>
-        <NavLink to="/deshboard"> Dashboard</NavLink>
-      </li>
+      {user && isAdmin && (
+        <li>
+          <NavLink to="/deshboard/admindeshbord"> Dashboard</NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <NavLink to="/deshboard/userdeshborde"> Dashboard</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to="/menu">Our Menu</NavLink>
       </li>

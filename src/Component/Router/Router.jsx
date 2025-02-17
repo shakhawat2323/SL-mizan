@@ -16,6 +16,8 @@ import ManagItems from "../Dashbord/ManagItems";
 import UPdateitems from "../Dashbord/UPdateitems";
 import Pyment from "../Pyment/Pyment";
 import Pymenthistory from "../Dashbord/Pymenthistory";
+import UserDashborde from "./../Dashbord/UserDashborde";
+import AdminDeshborde from "../Dashbord/AdminDeshborde";
 
 export const router = createBrowserRouter([
   {
@@ -68,7 +70,19 @@ export const router = createBrowserRouter([
         path: "pymenthistory",
         element: <Pymenthistory></Pymenthistory>,
       },
+      {
+        path: "userdeshborde",
+        element: <UserDashborde></UserDashborde>,
+      },
       // admin deshboard
+      {
+        path: "additem",
+        element: (
+          <PrivedAdmin>
+            <Additem></Additem>
+          </PrivedAdmin>
+        ),
+      },
       {
         path: "alluser",
         element: (
@@ -78,10 +92,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "additem",
+        path: "admindeshbord",
         element: (
           <PrivedAdmin>
-            <Additem></Additem>
+            <AdminDeshborde></AdminDeshborde>
           </PrivedAdmin>
         ),
       },
@@ -101,7 +115,7 @@ export const router = createBrowserRouter([
           </PrivedAdmin>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/menu/${params.id}`),
+          fetch(`https://server-mocha-eight-19.vercel.app/menu/${params.id}`),
       },
     ],
   },

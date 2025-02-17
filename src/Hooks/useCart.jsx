@@ -4,11 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 
 const useCart = () => {
   const axiosSecore = useAxios();
-  const { user } = useAuth();
+  const { user, loding } = useAuth();
 
   const { refetch, data: cart = [] } = useQuery({
     // querykey: ["cart", user?.email],
     queryKey: ["cart", user?.email],
+    enabled: !loding,
     queryFn: async () => {
       const res = await axiosSecore.get(`/cards?email=${user.email}`);
 

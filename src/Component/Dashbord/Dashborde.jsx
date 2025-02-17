@@ -33,7 +33,7 @@ const Dashborde = () => {
               {" "}
               <li className="mb-3 ">
                 <NavLink
-                  to="/deshboard/cart"
+                  to="/deshboard/admindeshbord"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
                   <IoHome />
@@ -91,7 +91,7 @@ const Dashborde = () => {
               {" "}
               <li className="mb-3 ">
                 <NavLink
-                  to="/deshboard/cart"
+                  to="/deshboard/userdeshborde"
                   className="text-xl text-white bg-[#3B25C1]  font-bold"
                 >
                   <IoHome />

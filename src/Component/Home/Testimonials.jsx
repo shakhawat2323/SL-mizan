@@ -13,7 +13,7 @@ const Testimonials = () => {
   const [revew, setRevew] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://server-mocha-eight-19.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setRevew(data));
   }, []);
